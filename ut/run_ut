@@ -1,0 +1,13 @@
+#!/bin/bash
+PATH_FROM_ROOT="./?.lua;./ut/?.lua;./ut/u-test/?.lua"
+PATH_FROM_UT="../?.lua;./?.lua;./u-test/?.lua"
+LUA_PATH="$PATH_FROM_ROOT;$PATH_FROM_UT"
+
+TESTS=`find . -iname *test*.lua`
+
+for test in $TESTS
+do
+    LUA_PATH=$LUA_PATH lua $test
+done
+
+
