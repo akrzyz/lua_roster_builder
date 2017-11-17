@@ -1,12 +1,18 @@
+# .travis.yaml
 language: python
+sudo: false
 
 env:
-  global:
-    - LUAROCKS=2.3.0
-    - LUA=lua5.3
+  - LUA="lua=5.1"
+  - LUA="lua=5.2"
+  - LUA="lua=5.3"
+  
+before_install:
+  - pip install hererocks
+  - hererocks lua_install -r^ --$LUA
+  - export PATH=$PATH:$PWD/lua_install/bin
     
 before_install:
-  - sudo apt-get install luarocks
   - luarocks install u-test
   
 script:
