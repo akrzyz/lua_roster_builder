@@ -12,7 +12,7 @@ before_install:
   - hererocks lua_install -r^ --$LUA
   - export PATH=$PATH:$PWD/lua_install/bin
     
-before_install:
+install:
   - luarocks install u-test
   
 script:
